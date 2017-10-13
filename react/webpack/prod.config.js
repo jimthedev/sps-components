@@ -3,21 +3,23 @@ const path = require('path');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
+const CompressionPlugin = require('compression-webpack-plugin');
 const { createLodashTransformer } = require('typescript-plugin-lodash');
 
 // This file was initial configured using https://medium.com/webpack/predictable-long-term-caching-with-webpack-d3eee1d3fa31
 // but there is also info here: https://medium.com/@adamrackis/vendor-and-code-splitting-in-webpack-2-6376358f1923
 
 const paths = {
-  assets: path.resolve(__dirname, '..', 'src')
-}
+  assets: path.resolve(__dirname, '..', 'src'),
+};
 
 module.exports = {
   resolve: {
-    alias:  { 
-      "lodash-es": "lodash"
-    }
+    alias: {
+      'lodash-es': 'lodash',
+    },
   },
   entry: {
     main: ['react-hot-loader/patch', './src/production.js'],
@@ -26,7 +28,7 @@ module.exports = {
     publicPath: '/',
     path: __dirname + '/../dist',
     filename: '[name].[chunkhash].js',
-    chunkFilename: '[name].[chunkhash].js'
+    chunkFilename: '[name].[chunkhash].js',
   },
   devtool: 'source-map',
 
@@ -64,9 +66,15 @@ module.exports = {
           },
         },
       },
-      { test: /\.tsx?$/, loader: 'awesome-typescript-loader', options: {
-        getCustomTransformers: () => ({ before: [createLodashTransformer()] })
-    } },
+      {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader',
+        options: {
+          getCustomTransformers: () => ({
+            before: [createLodashTransformer()],
+          }),
+        },
+      },
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
     ],
   },
@@ -92,7 +100,7 @@ module.exports = {
       if (chunk.name) {
         return chunk.name;
       }
-      
+
       const regex = new RegExp(`${paths.assets}/pages`);
 
       // every chunk have _modules, and iterate it.
@@ -105,11 +113,14 @@ module.exports = {
         // so I can locate it use regex.
         if (regex.test(m.context)) {
           // return whatever name you defined
-          return 'pages.' + path
-            .relative(paths.assets, m.context)
-            .split('/')
-            .slice(1)
-            .join('_');
+          return (
+            'pages.' +
+            path
+              .relative(paths.assets, m.context)
+              .split('/')
+              .slice(1)
+              .join('_')
+          );
         }
       }
 
@@ -119,15 +130,19 @@ module.exports = {
       name: 'vendor',
       minChunks(module) {
         return module.context && module.context.indexOf('node_modules') !== -1;
-      }
+      },
     }),
     new webpack.optimize.CommonsChunkPlugin({ name: 'manifest' }),
     new webpack.optimize.CommonsChunkPlugin({
       async: 'used-twice',
       minChunks(module, count) {
-          return count >= 2;
+        return count >= 2;
       },
     }),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+    }),
+    new CompressionPlugin(),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       generateStatsFile: true,
@@ -135,6 +150,6 @@ module.exports = {
       defaultSizes: 'gzip',
       reportFilename: 'stats/report.html',
       statsFilename: 'stats/stats.json',
-    })
+    }),
   ],
 };
