@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
-import App from './base/app';
+import App from './base/app.tsx';
 
 const render = Component => {
   ReactDOM.render(

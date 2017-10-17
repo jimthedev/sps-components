@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    // Relative to "baseUrl"
+    "paths": {
+      "react-sps": ["./src/lib/react-sps"],
+      "react-sps/*": ["./src/lib/react-sps/*"]
+    },
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,

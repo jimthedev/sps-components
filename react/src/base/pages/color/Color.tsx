@@ -1,28 +1,20 @@
 import React from 'react';
-import { RouteComponentProps, match, Link } from 'react-router-dom';
-import { get } from 'lodash';
+import { RouteComponentProps } from 'react-router-dom';
 import ColorDetail, {
   IColorDetail,
   IColorDetailRGB,
-} from '../../lib/ColorDetail';
-import * as Color from '../../lib/Color';
-import { Row, Col, Container, Visible } from '../../lib/Grid';
-import { sourceSansPro, withFonts } from '../../lib/Font';
+} from 'react-sps/colorDetail';
+import * as Color from 'react-sps/color';
+import { Row, Col } from 'react-sps/grid';
+import { withFonts, sourceSansPro } from 'react-sps/font';
+import { PageTitle, Heading } from 'react-sps/text';
 
-interface AboutParams {
-  name: string;
-  value: string;
+// interface PageParams {
+// }
+
+interface PageProps extends RouteComponentProps<any> {
+  // match: match<PageParams>;
 }
-
-interface AboutProps extends RouteComponentProps<any> {
-  match: match<AboutParams>;
-}
-
-const yo = {
-  my: {
-    name: 'asdfa',
-  },
-};
 
 export interface ISwatch {
   sourceSansPro: any;
@@ -74,35 +66,9 @@ export const Swatch = withFonts({
   }
 );
 
-const PageTitle = withFonts({
-  sourceSansPro,
-})(({ sourceSansPro, children }: any) => (
-  <h1 style={sourceSansPro.styles}>{children}</h1>
-));
-
-const Heading = withFonts({
-  sourceSansPro,
-})(({ sourceSansPro, children }: any) => (
-  <h2 style={sourceSansPro.styles}>{children}</h2>
-));
-
-export default ({ match }: AboutProps) => (
-  <div>
-    <Container>
-      <Row>
-        <Col>
-          <Visible xl={true}>X-Large</Visible>
-          <Visible lg={true}>Large</Visible>
-          <Visible md={true}>Medium</Visible>
-          <Visible sm={true}>Small</Visible>
-          <Visible xs={true}>X-Small</Visible>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Link to="/">Index</Link> hi, {match.params.name} {get(yo, 'my.name')}
-        </Col>
-      </Row>
+export default ({  }: PageProps) => (
+  <Row>
+    <Col>
       <Row>
         <Col>
           <PageTitle>Color</PageTitle>
@@ -110,7 +76,7 @@ export default ({ match }: AboutProps) => (
       </Row>
       <Row>
         <Col>
-          <Heading>Blues</Heading>
+          <Heading>Blue</Heading>
         </Col>
       </Row>
       <Row>
@@ -129,12 +95,15 @@ export default ({ match }: AboutProps) => (
       </Row>
       <Row>
         <Col>
-          <Heading>Whites, Grays, Black</Heading>
+          <Heading>White, Gray, Black</Heading>
         </Col>
       </Row>
       <Row>
         <Col sm={6} md={4} xl={3}>
           <Swatch colorDetail={ColorDetail.white} textColor={Color.gray600} />
+        </Col>
+        <Col sm={6} md={4} xl={3}>
+          <Swatch colorDetail={ColorDetail.gray100} textColor={Color.gray600} />
         </Col>
         <Col sm={6} md={4} xl={3}>
           <Swatch colorDetail={ColorDetail.gray200} textColor={Color.gray600} />
@@ -151,10 +120,13 @@ export default ({ match }: AboutProps) => (
         <Col sm={6} md={4} xl={3}>
           <Swatch colorDetail={ColorDetail.gray600} textColor={Color.white} />
         </Col>
+        <Col sm={6} md={4} xl={3}>
+          <Swatch colorDetail={ColorDetail.black} textColor={Color.white} />
+        </Col>
       </Row>
       <Row>
         <Col>
-          <Heading>Oranges</Heading>
+          <Heading>Orange</Heading>
         </Col>
       </Row>
       <Row>
@@ -173,7 +145,7 @@ export default ({ match }: AboutProps) => (
       </Row>
       <Row>
         <Col>
-          <Heading>Yellows</Heading>
+          <Heading>Yellow</Heading>
         </Col>
       </Row>
       <Row>
@@ -198,7 +170,7 @@ export default ({ match }: AboutProps) => (
       </Row>
       <Row>
         <Col>
-          <Heading>Purples</Heading>
+          <Heading>Purple</Heading>
         </Col>
       </Row>
       <Row>
@@ -217,7 +189,7 @@ export default ({ match }: AboutProps) => (
       </Row>
       <Row>
         <Col>
-          <Heading>Greens</Heading>
+          <Heading>Green</Heading>
         </Col>
       </Row>
       <Row>
@@ -236,7 +208,7 @@ export default ({ match }: AboutProps) => (
       </Row>
       <Row>
         <Col>
-          <Heading>Reds</Heading>
+          <Heading>Red</Heading>
         </Col>
       </Row>
       <Row>
@@ -250,21 +222,6 @@ export default ({ match }: AboutProps) => (
           <Swatch colorDetail={ColorDetail.red300} textColor={Color.white} />
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <Heading>Grid</Heading>
-        </Col>
-      </Row>
-      <Row style={{ backgroundColor: Color.blue100 }}>
-        <Col>1 of 3</Col>
-        <Col>2 of 3</Col>
-        <Col>3 of 3</Col>
-      </Row>
-      <Row style={{ backgroundColor: Color.blue300 }}>
-        <Col style={{ border: '1px solid red' }}>1 of 3</Col>
-        <Col>2 of 3</Col>
-        <Col>3 of 3</Col>
-      </Row>
-    </Container>
-  </div>
+    </Col>
+  </Row>
 );

@@ -1,6 +1,13 @@
+var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
+var TsConfigPathsPlugin = require('awesome-typescript-loader')
+  .TsConfigPathsPlugin;
+var createStyledComponentsTransformer = require('typescript-plugin-styled-components')
+  .default;
+var styledComponentsTransformer = createStyledComponentsTransformer();
 
 module.exports = {
   entry: {
@@ -16,10 +23,19 @@ module.exports = {
   },
 
   devtool: 'eval-source-map', //source-map
-
   resolve: {
+    plugins: [new TsConfigPathsPlugin /* { tsconfig, compiler } */()],
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
+  // resolve: {
+  //   // plugins: [
+  //   //   new TsConfigPathsPlugin({
+  //   //     tsconfig: "tsconfig.json",
+  //   //     compiler: "typescript",
+  //   // })
+  //   //],
+  //
+  // },
 
   module: {
     rules: [
@@ -50,7 +66,15 @@ module.exports = {
           },
         },
       },
-      { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
+      {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader',
+        options: {
+          getCustomTransformers: () => ({
+            before: [styledComponentsTransformer],
+          }),
+        },
+      },
     ],
   },
   plugins: [
@@ -59,7 +83,7 @@ module.exports = {
       template: 'webpack/base.ejs',
     }),
     new BundleAnalyzerPlugin({
-      openAnalyzer: false
-    })
+      openAnalyzer: false,
+    }),
   ],
 };

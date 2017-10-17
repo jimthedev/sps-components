@@ -7,12 +7,17 @@ var BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
 const CompressionPlugin = require('compression-webpack-plugin');
 const { createLodashTransformer } = require('typescript-plugin-lodash');
+var TsConfigPathsPlugin = require('awesome-typescript-loader')
+  .TsConfigPathsPlugin;
+var createStyledComponentsTransformer = require('typescript-plugin-styled-components')
+  .default;
+var styledComponentsTransformer = createStyledComponentsTransformer();
 
 // This file was initial configured using https://medium.com/webpack/predictable-long-term-caching-with-webpack-d3eee1d3fa31
 // but there is also info here: https://medium.com/@adamrackis/vendor-and-code-splitting-in-webpack-2-6376358f1923
 
 const paths = {
-  assets: path.resolve(__dirname, '..', 'src'),
+  assets: path.resolve(__dirname, '..', 'src', 'base'),
 };
 
 module.exports = {
@@ -33,7 +38,7 @@ module.exports = {
   devtool: 'source-map',
 
   resolve: {
-    // Add '.ts' and '.tsx' as resolvable extensions.
+    plugins: [new TsConfigPathsPlugin /* { tsconfig, compiler } */()],
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
 
@@ -71,7 +76,7 @@ module.exports = {
         loader: 'awesome-typescript-loader',
         options: {
           getCustomTransformers: () => ({
-            before: [createLodashTransformer()],
+            before: [createLodashTransformer(), styledComponentsTransformer],
           }),
         },
       },

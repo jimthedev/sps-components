@@ -1,4 +1,4 @@
-import * as Color from './Color';
+import * as Color from './color';
 
 export interface IColorDetailRGB {
   red: number;
@@ -21,11 +21,13 @@ export interface IColorDetails {
 
   // Grays
   white: IColorDetail;
+  gray100: IColorDetail;
   gray200: IColorDetail;
   gray300: IColorDetail;
   gray400: IColorDetail;
   gray500: IColorDetail;
   gray600: IColorDetail;
+  black: IColorDetail;
 
   // Oranges
   orange100: IColorDetail;
@@ -102,6 +104,15 @@ const ColorDetail: IColorDetails = {
       blue: 233,
     },
   },
+  gray100: {
+    friendlyName: 'Gray 100',
+    hex: Color.gray100,
+    rgb: {
+      red: 246,
+      green: 246,
+      blue: 246,
+    },
+  },
   gray200: {
     friendlyName: 'Gray 200',
     hex: Color.gray200,
@@ -145,6 +156,15 @@ const ColorDetail: IColorDetails = {
       red: 31,
       green: 40,
       blue: 44,
+    },
+  },
+  black: {
+    friendlyName: 'Black',
+    hex: Color.black,
+    rgb: {
+      red: 0,
+      green: 0,
+      blue: 0,
     },
   },
 
