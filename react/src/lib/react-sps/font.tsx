@@ -11,25 +11,26 @@ export const sourceSansPro = {
   },
   styles: {
     initial: {
-      fontFamily: 'Arial, Helvetica, sans-serif',
+      fontFamily: 'Helvetica, Arial, sans-serif',
     },
     success: {
-      fontFamily: '"Source Sans Pro", sans-serif',
+      fontFamily: '"Source Sans Pro", Helvetica, Arial, sans-serif',
     },
     fallback: {
       // `initial` will be used instead if not set
-      fontFamily: 'Arial, Helvetica, sans-serif',
+      fontFamily: 'Helvetica, Arial, sans-serif',
     },
   },
 };
 
-export enum fontWeight {
-  light = 300,
-  normal = 500,
-  bold = 700,
-}
+// export enum fontWeight {
+//   light = 300,
+//   normal = 400,
+//   semibold = 600,
+//   bold = 700,
+// }
 
-export enum fontStyle {
-  normal = 'normal',
-  italic = 'italic',
-}
+// export enum fontStyle {
+//   normal = 'normal',
+//   italic = 'italic',
+// }

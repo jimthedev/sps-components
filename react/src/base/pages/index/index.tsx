@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Row, Col } from 'react-sps/grid';
-import { PageTitle, Heading } from 'react-sps/text';
+import { H1 } from 'react-sps/h1';
+import { H2 } from 'react-sps/h2';
+import { P } from 'react-sps/p';
 
 interface IPageProps {}
 
@@ -11,94 +13,121 @@ export default class Hello extends React.Component<IPageProps> {
         <Col>
           <Row>
             <Col>
-              <PageTitle>React SPS</PageTitle>
+              <H1>React SPS</H1>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Heading>Overview</Heading>
-              <p>
-                This project is a React, TypeScript, Webpack boilerplate
-                including two major pieces:
-              </p>
-              <p>1. A component library (react-sps, in src/lib/react-sps).</p>
-              <p>
-                2. An app that relies on the component library (in src/base).
-              </p>
+              <H2>Overview</H2>
+              <P>
+                This project is a React, TypeScript, Webpack guide, library and
+                boilerplate including two major pieces:
+              </P>
+              <ol>
+                <li>A component library (react-sps, in src/lib/react-sps).</li>
+                <li>
+                  An app that relies on the component library (in src/base).
+                </li>
+              </ol>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Heading>Routing</Heading>
-              <p>
+              <H2>Routing</H2>
+              <P>
                 Lazy loading of application routes is accomplished out of the
                 box using, react-router, react-loadable, and Webpack's import()
                 syntax. Lazy loaded routes have a delay and timeout handling as
                 well as loading indicator.
-              </p>
+              </P>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Heading>Bundling</Heading>
-              <p>
+              <H2>Bundling</H2>
+              <P>
                 Optimized bundles are generated for loading a tree of components
                 by lazy loaded pages using the Webpack Commons Chunked plugin,
                 Webpack's import() syntax.
-              </p>
-              <p>
+              </P>
+              <P>
                 Gzip bundles are generated using the Webpack compression plugin.
-              </p>
-              <p>
+              </P>
+              <P>
                 The styled-components babel plugin and lodash plugins are used
                 to keep bundle sizes tiny.
-              </p>
-              <p>
+              </P>
+              <P>
                 The Bundle Analyzer plugin is run against prod builds. This
                 means you can easily troubleshoot bundles if they suddenly grow
                 in size.
-              </p>
-              <p>
+              </P>
+              <P>
                 The npm script bundlesize is included to ensure that bundle
                 sizes are capped by default so that bundle size increases become
                 easier to approve, reject or track.
-              </p>
+              </P>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Heading>Testing</Heading>
-              <p>
+              <H2>Testing</H2>
+              <P>
                 Jest is used for testing, ts-jest provides typescript
                 functionality during testing.
-              </p>
-              <p>
+              </P>
+              <P>
                 The npm script bundlesize is run during testing to enforce
                 bundle size policies.
-              </p>
+              </P>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Heading>Fonts</Heading>
-              <p>
+              <H2>Fonts</H2>
+              <P>
                 Font loading is done asynchronously using
                 react-with-async-fonts. The fonts are loaded exactly once and
                 components may request information about the loading. Under the
                 hood fontfaceobserver is used. There are timeouts and fallbacks
                 in place. Additionally you may define fonts to be used until a
                 given font is loaded.
-              </p>
+              </P>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Heading>Theme</Heading>
-              <p>
+              <H2>Theme</H2>
+              <P>
                 Color Theme is available to all components using ThemeProvider
                 from styled-components. Currently there is a single theme called
                 standard theme but others could be provided.
-              </p>
+              </P>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <H2>Grid</H2>
+              <P>
+                There is a fixed and fluid grid provided using {'<Col>'} and{' '}
+                {'<Row>'} syntax. The grid is from the react-grid-system
+                package.
+              </P>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <H2>FAQ / Known Issues</H2>
+              <P>
+                Sometimes when clicking a link you may see an error "Hash
+                history cannot PUSH the same path; a new entry will not be added
+                to the history stack". You can ignore this error as there is an{' '}
+                <a href="https://github.com/ReactTraining/history/issues/488">
+                  open issue
+                </a>{' '}
+                and is mostly there for developers to debug with full stack
+                traces.
+              </P>
             </Col>
           </Row>
         </Col>

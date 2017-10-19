@@ -1,7 +1,9 @@
 import React from 'react';
 import { RouteComponentProps, match } from 'react-router-dom';
 import { Row, Col, Visible } from 'react-sps/grid';
-import { PageTitle, Heading } from 'react-sps/text';
+import { H1 } from 'react-sps/h1';
+import { H2 } from 'react-sps/h2';
+import { P } from 'react-sps/p';
 import { withTheme, ITheme } from 'react-sps/themed-components';
 
 interface PageParams {
@@ -21,39 +23,51 @@ export default withTheme(({ theme }: IPageProps) => {
       <Col>
         <Row>
           <Col>
-            <PageTitle>Grid</PageTitle>
+            <H1>Grid</H1>
           </Col>
         </Row>
         <Row>
           <Col>
-            <Heading>Basics</Heading>
+            <H2>Basics</H2>
           </Col>
         </Row>
         <Row>
-          <Col>1 of 3</Col>
-          <Col>2 of 3</Col>
-          <Col>3 of 3</Col>
+          <Col>
+            <P>1 of 3</P>
+          </Col>
+          <Col>
+            <P>2 of 3</P>
+          </Col>
+          <Col>
+            <P>3 of 3</P>
+          </Col>
         </Row>
         <Row>
           <Col style={{ border: '1px solid ' + theme.color.green300 }}>
-            1 of 3
+            <P>1 of 3</P>
           </Col>
-          <Col>2 of 3</Col>
-          <Col>3 of 3</Col>
+          <Col>
+            <P>2 of 3</P>
+          </Col>
+          <Col>
+            <P>3 of 3</P>
+          </Col>
         </Row>
         <Row>
           <Col>
-            <Heading>Responsive Breakpoints</Heading>
+            <H2>Responsive Breakpoints</H2>
           </Col>
         </Row>
         <Row>
           <Col>
-            <span>Current breakpoint: </span>
-            <Visible xl={true}>X-Large</Visible>
-            <Visible lg={true}>Large</Visible>
-            <Visible md={true}>Medium</Visible>
-            <Visible sm={true}>Small</Visible>
-            <Visible xs={true}>X-Small</Visible>
+            <P>
+              <span>Current breakpoint: </span>
+              <Visible xl={true}>X-Large</Visible>
+              <Visible lg={true}>Large</Visible>
+              <Visible md={true}>Medium</Visible>
+              <Visible sm={true}>Small</Visible>
+              <Visible xs={true}>X-Small</Visible>
+            </P>
           </Col>
         </Row>
       </Col>

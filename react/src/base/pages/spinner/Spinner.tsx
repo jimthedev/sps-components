@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { Row, Col } from 'react-sps/grid';
-import { PageTitle } from 'react-sps/text';
+import { H1 } from 'react-sps/h1';
 import { Spinner } from 'react-sps/spinner';
 // interface PageParams {
 // }
@@ -15,7 +15,7 @@ export default ({  }: PageProps) => (
     <Col>
       <Row>
         <Col>
-          <PageTitle>Spinner</PageTitle>
+          <H1>Spinner</H1>
         </Col>
       </Row>
       <Row>

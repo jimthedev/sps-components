@@ -1,15 +1,14 @@
-// themed-components.ts
 import * as styledComponents from 'styled-components';
+
 import { ThemedStyledComponentsModule } from 'styled-components';
+import { ThemedStyledFunction } from 'styled-components';
 
-import { ITheme } from './theme/standard'; // custom theme
+import { ITheme } from './theme/standard';
 
-type StyledFunction<T> = styledComponents.ThemedStyledFunction<T, ITheme>;
-
-function withProps<T, U extends HTMLElement = HTMLElement>(
-  styledFunction: StyledFunction<React.HTMLProps<U>>
-): StyledFunction<T & React.HTMLProps<U>> {
-  return styledFunction;
+function withProps<U>() {
+  return <P, T, O>(
+    fn: ThemedStyledFunction<P, T, O>
+  ): ThemedStyledFunction<P & U, T, O & U> => fn;
 }
 
 const {

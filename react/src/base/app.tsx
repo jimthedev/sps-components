@@ -11,7 +11,7 @@ import { theme as standardTheme } from 'react-sps/theme/standard';
 import { Navigation } from './Navigation';
 
 // Used for routing
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 // Used for creating lazy loadable components
 import { LoadablePage } from 'react-sps/loadable';
@@ -34,6 +34,10 @@ export const FormPage = LoadablePage({
   loader: () => import('./pages/form/Form'),
 });
 
+export const TypographyPage = LoadablePage({
+  loader: () => import('./pages/typography/Typography'),
+});
+
 export const SpinnerPage = LoadablePage({
   loader: () => import('./pages/spinner/Spinner'),
 });
@@ -53,6 +57,12 @@ export const SpinnerPage = LoadablePage({
  *   sites or those hosted off CDNs.
  */
 export default class App extends React.Component {
+  componentWillMount() {
+    document.body.style.backgroundColor = standardTheme.color.gray100;
+  }
+  componentWillUnmount() {
+    document.body.style.backgroundColor = null;
+  }
   render() {
     return (
       <ThemeProvider theme={standardTheme}>
@@ -61,14 +71,27 @@ export default class App extends React.Component {
             <Navigation />
             <Switch>
               <Route
-                path="/"
+                path="/overview"
                 exact
                 render={() => <IndexPage name="Zach" value="Hi" />}
               />
               <Route path="/color" exact component={ColorPage} />
               <Route path="/grid" exact component={GridPage} />
               <Route path="/form" exact component={FormPage} />
+              <Route path="/typography" exact component={TypographyPage} />
               <Route path="/spinner" exact component={SpinnerPage} />
+              <Route
+                path="/"
+                exact
+                render={props => (
+                  <Redirect
+                    to={{
+                      pathname: '/overview',
+                      state: { from: props.location },
+                    }}
+                  />
+                )}
+              />
             </Switch>
           </Container>
         </HashRouter>

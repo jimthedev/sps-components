@@ -1,7 +1,15 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    // Relative to "baseUrl"
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "tags": [
+          "styled",
+          "themed"
+        ]
+      }
+    ],
     "paths": {
       "react-sps": ["./src/lib/react-sps"],
       "react-sps/*": ["./src/lib/react-sps/*"]

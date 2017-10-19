@@ -7,7 +7,9 @@ import ColorDetail, {
 import * as Color from 'react-sps/color';
 import { Row, Col } from 'react-sps/grid';
 import { withFonts, sourceSansPro } from 'react-sps/font';
-import { PageTitle, Heading } from 'react-sps/text';
+import { H1 } from 'react-sps/h1';
+import { H2 } from 'react-sps/h2';
+import { P } from 'react-sps/p';
 
 // interface PageParams {
 // }
@@ -71,12 +73,31 @@ export default ({  }: PageProps) => (
     <Col>
       <Row>
         <Col>
-          <PageTitle>Color</PageTitle>
+          <H1>Color</H1>
         </Col>
       </Row>
       <Row>
         <Col>
-          <Heading>Blue</Heading>
+          <H2>Using Colors in your components</H2>
+          <P>
+            You should not use colors directly but rather get them off the theme
+            prop. See the spinner component for an example of using the colors
+            from a theme.
+          </P>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <H2>Changing or adding colors</H2>
+          <P>
+            Colors are defined in their theme. When a user selects a theme then
+            those colors may be changed.
+          </P>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <H2>Blue</H2>
         </Col>
       </Row>
       <Row>
@@ -95,7 +116,7 @@ export default ({  }: PageProps) => (
       </Row>
       <Row>
         <Col>
-          <Heading>White, Gray, Black</Heading>
+          <H2>White, Gray, Black</H2>
         </Col>
       </Row>
       <Row>
@@ -126,7 +147,7 @@ export default ({  }: PageProps) => (
       </Row>
       <Row>
         <Col>
-          <Heading>Orange</Heading>
+          <H2>Orange</H2>
         </Col>
       </Row>
       <Row>
@@ -145,7 +166,7 @@ export default ({  }: PageProps) => (
       </Row>
       <Row>
         <Col>
-          <Heading>Yellow</Heading>
+          <H2>Yellow</H2>
         </Col>
       </Row>
       <Row>
@@ -170,7 +191,7 @@ export default ({  }: PageProps) => (
       </Row>
       <Row>
         <Col>
-          <Heading>Purple</Heading>
+          <H2>Purple</H2>
         </Col>
       </Row>
       <Row>
@@ -189,7 +210,7 @@ export default ({  }: PageProps) => (
       </Row>
       <Row>
         <Col>
-          <Heading>Green</Heading>
+          <H2>Green</H2>
         </Col>
       </Row>
       <Row>
@@ -208,7 +229,7 @@ export default ({  }: PageProps) => (
       </Row>
       <Row>
         <Col>
-          <Heading>Red</Heading>
+          <H2>Red</H2>
         </Col>
       </Row>
       <Row>

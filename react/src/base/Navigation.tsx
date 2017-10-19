@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-sps/link';
 import { Row, Col } from 'react-sps/grid';
 
 export const Navigation = () => (
@@ -7,21 +7,40 @@ export const Navigation = () => (
     <Col>
       <Row>
         <Col lg={3}>
-          <Link to="/">Overview</Link>
+          <NavLink
+            to="/overview"
+            activeStyle={{
+              fontWeight: 'bold',
+              color: 'red',
+            }}
+          >
+            Overview
+          </NavLink>
         </Col>
         <Col lg={3}>
-          <Link to="/color">Color</Link>
+          <NavLink
+            to="/color"
+            activeStyle={{
+              fontWeight: 'bold',
+              color: 'red',
+            }}
+          >
+            Color
+          </NavLink>
         </Col>
         <Col lg={3}>
-          <Link to="/grid">Grid</Link>
+          <NavLink to="/grid">Grid</NavLink>
         </Col>
         <Col lg={3}>
-          <Link to="/form">Form</Link>
+          <NavLink to="/form">Form</NavLink>
         </Col>
       </Row>
       <Row>
         <Col lg={3}>
-          <Link to="/spinner">Spinner</Link>
+          <NavLink to="/typography">Typography</NavLink>
+        </Col>
+        <Col lg={3}>
+          <NavLink to="/spinner">Spinner</NavLink>
         </Col>
       </Row>
     </Col>
