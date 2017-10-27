@@ -30,9 +30,10 @@ const styled = {
   RouterNavLink: withProps<IProps>()(themed(StrippedNavLink)).attrs({
     activeClassName,
   }),
+  a: withProps<IProps>()(themed.a),
 };
 
-export const ThemedLink = withFonts({ sourceSansPro })(styled.RouterLink`
+export const A = withFonts({ sourceSansPro })(styled.a`
   background-color: transparent;
   background-image: none;
   border-bottom-color: transparent;
@@ -58,21 +59,15 @@ export const ThemedLink = withFonts({ sourceSansPro })(styled.RouterLink`
   border-top-width: 1px;
   box-shadow: none;
   box-sizing: border-box;
-  color: ${props => props.theme.color.blue200};
+  color: ${({theme}) => theme.color.blue200};
   cursor: auto;
-  display: inline-block;
-  font-family: ${props => props.sourceSansPro.styles.fontFamily};
+  display: inline;
+  font-family: ${({sourceSansPro}) => sourceSansPro.styles.fontFamily};
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
-  height: 29px;
-  line-height: 19.992px;
-  padding-bottom: 4px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 4px;
   text-align: center;
-  text-decoration-color: ${props => props.theme.color.blue200};
+  text-decoration-color: ${({theme}) => theme.color.blue200};
   text-decoration-line: none;
   text-decoration-skip: objects;
   text-decoration-style: solid;
@@ -83,9 +78,64 @@ export const ThemedLink = withFonts({ sourceSansPro })(styled.RouterLink`
   transition-property: background-color, border-color, box-shadow;
   transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
   user-select: none;
-  vertical-align: middle;
   white-space: nowrap;
 `);
+
+export const Link = withFonts({ sourceSansPro })(styled.RouterLink`
+background-color: transparent;
+background-image: none;
+border-bottom-color: transparent;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+border-image-outset: 0px;
+border-image-repeat: stretch;
+border-image-slice: 100%;
+border-image-source: none;
+border-image-width: 1;
+border-left-color: transparent;
+border-left-style: solid;
+border-left-width: 1px;
+border-right-color: transparent;
+border-right-style: solid;
+border-right-width: 1px;
+border-top-color: transparent;
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+border-top-style: solid;
+border-top-width: 1px;
+box-shadow: none;
+box-sizing: border-box;
+color: ${({theme}) => theme.color.blue200};
+cursor: auto;
+display: inline;
+font-family: ${({sourceSansPro}) => sourceSansPro.styles.fontFamily};
+font-size: 12px;
+font-style: normal;
+font-weight: 600;
+text-align: center;
+text-decoration-color: ${({theme}) => theme.color.blue200};
+text-decoration-line: none;
+text-decoration-skip: objects;
+text-decoration-style: solid;
+text-size-adjust: 100%;
+touch-action: manipulation;
+transition-delay: 0s, 0s, 0s;
+transition-duration: 0.15s, 0.15s, 0.15s;
+transition-property: background-color, border-color, box-shadow;
+transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
+user-select: none;
+white-space: nowrap;
+`);
+
+/*
+  display: inline-block;
+  padding-bottom: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 4px;
+*/
 
 export const NavLink = withFonts({ sourceSansPro })(styled.RouterNavLink`
   background-color: transparent;
@@ -113,21 +163,16 @@ export const NavLink = withFonts({ sourceSansPro })(styled.RouterNavLink`
   border-top-width: 1px;
   box-shadow: none;
   box-sizing: border-box;
-  color: ${props => props.theme.color.blue200};
+  color: ${({theme}) => theme.color.blue200};
   cursor: auto;
-  display: inline-block;
-  font-family: ${props => props.sourceSansPro.styles.fontFamily};
+  display: inline;
+  font-family: ${({sourceSansPro}) => sourceSansPro.styles.fontFamily};
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
-  height: 29px;
   line-height: 19.992px;
-  padding-bottom: 4px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 4px;
   text-align: center;
-  text-decoration-color: ${props => props.theme.color.blue200};
+  text-decoration-color: ${({theme}) => theme.color.blue200};
   text-decoration-line: none;
   text-decoration: none;
   text-decoration-skip: objects;

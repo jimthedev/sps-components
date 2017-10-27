@@ -15,14 +15,16 @@ const styled = {
 // These styles will remain local
 export const P = withFonts({ sourceSansPro })(styled.p`
   box-sizing: border-box;
-  color: ${props => props.theme.color.gray600};
+  color: ${({theme}) => theme.color.gray600};
   display: block;
-  font-family: ${props => props.sourceSansPro.styles.fontFamily};
+  font-family: ${({sourceSansPro}) => sourceSansPro.styles.fontFamily};
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
-  margin-bottom: 16px;
-  margin-top: 0px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
   text-align: left;
   text-size-adjust: 100%;
 `);

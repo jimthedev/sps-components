@@ -12,7 +12,7 @@
 
 // // These styles will remain local
 // export const Spinner = styled.div`
-//   color: ${props => props.theme.color.gray500};
+//   color: ${({theme}) => theme.color.gray500};
 //   line-height: 22px;
 //   margin: 0;
 // `;

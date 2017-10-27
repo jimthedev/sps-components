@@ -1,10 +1,8 @@
 import React from 'react';
-import { RouteComponentProps, match } from 'react-router-dom';
-import { Row, Col, Visible } from 'react-sps/grid';
-import { H1 } from 'react-sps/h1';
-import { H2 } from 'react-sps/h2';
-import { P } from 'react-sps/p';
-import { withTheme, ITheme } from 'react-sps/themed-components';
+import { H1, H2, P, Container, Row, Col, Visible, match, RouteComponentProps, withTheme, ITheme } from "react-sps";
+
+import {ItemGroup} from '../../ItemGroup';
+import {ItemHeadingGroup} from '../../ItemHeadingGroup';
 
 interface PageParams {
   name: string;
@@ -21,45 +19,42 @@ export default withTheme(({ theme }: IPageProps) => {
   return (
     <Row>
       <Col>
-        <Row>
-          <Col>
-            <H1>Grid</H1>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
+        <H1>Grid</H1>
+        <ItemGroup>
+          <ItemHeadingGroup>
             <H2>Basics</H2>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <P>1 of 3</P>
-          </Col>
-          <Col>
-            <P>2 of 3</P>
-          </Col>
-          <Col>
-            <P>3 of 3</P>
-          </Col>
-        </Row>
-        <Row>
-          <Col style={{ border: '1px solid ' + theme.color.green300 }}>
-            <P>1 of 3</P>
-          </Col>
-          <Col>
-            <P>2 of 3</P>
-          </Col>
-          <Col>
-            <P>3 of 3</P>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
+            <Container>
+              <Row>
+                <Col>
+                  <P>1 of 3</P>
+                </Col>
+                <Col>
+                  <P>2 of 3</P>
+                </Col>
+                <Col>
+                  <P>3 of 3</P>
+                </Col>
+              </Row>
+            </Container>
+          </ItemHeadingGroup>
+          <ItemHeadingGroup>
+            <H2>With Border</H2>
+            <Container>
+              <Row>
+                <Col style={{ border: '1px solid ' + theme.color.green300 }}>
+                  <P>1 of 3</P>
+                </Col>
+                <Col>
+                  <P>2 of 3</P>
+                </Col>
+                <Col>
+                  <P>3 of 3</P>
+                </Col>
+              </Row>
+            </Container>
+          </ItemHeadingGroup>
+          <ItemHeadingGroup>
             <H2>Responsive Breakpoints</H2>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
             <P>
               <span>Current breakpoint: </span>
               <Visible xl={true}>X-Large</Visible>
@@ -68,8 +63,8 @@ export default withTheme(({ theme }: IPageProps) => {
               <Visible sm={true}>Small</Visible>
               <Visible xs={true}>X-Small</Visible>
             </P>
-          </Col>
-        </Row>
+          </ItemHeadingGroup>
+        </ItemGroup>
       </Col>
     </Row>
   );

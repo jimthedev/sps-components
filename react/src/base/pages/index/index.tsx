@@ -1,8 +1,5 @@
 import * as React from 'react';
-import { Row, Col } from 'react-sps/grid';
-import { H1 } from 'react-sps/h1';
-import { H2 } from 'react-sps/h2';
-import { P } from 'react-sps/p';
+import { H1, H2, H4, P, A, Row, Col } from 'react-sps';
 
 interface IPageProps {}
 
@@ -118,15 +115,20 @@ export default class Hello extends React.Component<IPageProps> {
           <Row>
             <Col>
               <H2>FAQ / Known Issues</H2>
+              <H4>Hash history cannot PUSH the same path</H4>
               <P>
                 Sometimes when clicking a link you may see an error "Hash
                 history cannot PUSH the same path; a new entry will not be added
                 to the history stack". You can ignore this error as there is an{' '}
-                <a href="https://github.com/ReactTraining/history/issues/488">
+                <A href="https://github.com/ReactTraining/history/issues/488">
                   open issue
-                </a>{' '}
+                </A>{' '}
                 and is mostly there for developers to debug with full stack
                 traces.
+              </P>
+              <H4>What are {"<Aux>"} components?</H4>
+              <P>
+                Aux components are components that do not add a new pointless element to the DOM. Instead they put only their children into the DOM. They use a feature of React 16 (multiple root children) to ensure that an array of elements is returned without having to use the ugly array syntax of React 16. See <A href="https://github.com/gajus/react-aux">https://github.com/gajus/react-aux</A>
               </P>
             </Col>
           </Row>

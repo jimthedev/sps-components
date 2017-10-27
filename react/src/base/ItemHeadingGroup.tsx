@@ -1,5 +1,4 @@
-import themed, { withProps } from './themed-components';
-import { withFonts, sourceSansPro } from 'react-sps/font';
+import { withFonts, sourceSansPro, withProps, themed } from "react-sps";
 
 interface IProps {
   sourceSansPro: any;
@@ -9,19 +8,22 @@ interface IProps {
 // should be listed here:
 // Req'd due to: https://github.com/Microsoft/typescript-styled-plugin/issues/21
 const styled = {
-  h6: withProps<IProps>()(themed.h6),
+  itemHeadingGroup: withProps<IProps>()(themed.div)
 };
 
 // These styles will remain local
-export const H6 = withFonts({ sourceSansPro })(styled.h6`
+export const ItemHeadingGroup = withFonts({
+  sourceSansPro
+})(styled.itemHeadingGroup`
   box-sizing: border-box;
-  color: ${({theme}) => theme.color.gray600};
+  color: ${({theme}) => theme.color.gray200};
   display: block;
   font-family: ${({sourceSansPro}) => sourceSansPro.styles.fontFamily};
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
-  line-height: 17.6px;
-  margin-top: 0px;
+  line-height: 18px;
+  margin-bottom: 32px;
   text-align: left;
   text-size-adjust: 100%;
+  vertical-align: middle;
 `);

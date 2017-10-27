@@ -1,6 +1,6 @@
-import * as React from 'react';
-import themed, { withProps } from './themed-components';
-import { sourceSansPro, withFonts } from 'react-sps/font';
+import * as React from "react";
+import themed, { withProps } from "./themed-components";
+import { sourceSansPro, withFonts } from "react-sps/font";
 
 interface IProps {
   active?: boolean;
@@ -14,26 +14,24 @@ interface IProps {
 // should be listed here:
 // Req'd due to: https://github.com/Microsoft/typescript-styled-plugin/issues/21
 const styled = {
-  label: withProps<IProps>()(themed.label),
+  label: withProps<IProps>()(themed.label)
 };
 
 // These styles will remain local
 export const StyledLabel = withFonts({
-  sourceSansPro,
+  sourceSansPro
 })(styled.label`
-  color: ${props =>
-    props.error && !props.disabled
-      ? props.theme.color.red200
-      : props.theme.color.gray500};
+  color: ${({ disabled, error, theme }) =>
+    error && !disabled ? theme.color.red200 : theme.color.gray500};
   font-size: 12px;
   font-weight: 600;
-  font-family: ${props => props.sourceSansPro.styles.fontFamily};
+  font-family: ${({ sourceSansPro }) => sourceSansPro.styles.fontFamily};
 
-  ${props =>
-    props.required && !props.disabled
+  ${({ disabled, required, sourceSansPro, theme }) =>
+    required && !disabled
       ? `
     ::before {
-      color: ${props.theme.color.red200};
+      color: ${theme.color.red200};
       content: "*";
       margin-left: -13px;
       text-align: right;
@@ -41,7 +39,7 @@ export const StyledLabel = withFonts({
       height: 10px;
       position: relative;
       display:inline-block;
-      font-family: ${props.sourceSansPro.styles.fontFamily};
+      font-family: ${sourceSansPro.styles.fontFamily};
       font-weight: 200;
       font-size: 22px;
       padding-right: 3px;
@@ -55,7 +53,7 @@ export const Label = (props: any) => (
   <StyledLabel {...props}>
     {props.error && !props.disabled ? (
       <span>
-        <i className="fa fa-exclamation-triangle" aria-hidden="true" />{' '}
+        <i className="fa fa-exclamation-triangle" aria-hidden="true" />{" "}
       </span>
     ) : null}
     {props.children}

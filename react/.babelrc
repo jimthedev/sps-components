@@ -2,9 +2,15 @@
   "presets": ["react"],
   "plugins": [
     "syntax-dynamic-import",
+    "react-loadable/babel",
     ["import-inspector", {
       "webpackRequireWeakId": true
     }],
     "react-hot-loader/babel"
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["dynamic-import-node"]
+    }
+  }
 }

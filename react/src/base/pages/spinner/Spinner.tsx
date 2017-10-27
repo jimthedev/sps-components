@@ -1,8 +1,9 @@
 import React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
-import { Row, Col } from 'react-sps/grid';
-import { H1 } from 'react-sps/h1';
-import { Spinner } from 'react-sps/spinner';
+import { RouteComponentProps, Row, Col, H1, H2, Spinner } from 'react-sps';
+
+import {ItemGroup} from '../../ItemGroup';
+import {ItemHeadingGroup} from '../../ItemHeadingGroup';
+
 // interface PageParams {
 // }
 
@@ -13,16 +14,13 @@ interface PageProps extends RouteComponentProps<any> {
 export default ({  }: PageProps) => (
   <Row>
     <Col>
-      <Row>
-        <Col>
-          <H1>Spinner</H1>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
+      <H1>Spinner</H1>
+      <ItemGroup>
+        <ItemHeadingGroup>
+          <H2>Standard Spinner</H2>
           <Spinner />
-        </Col>
-      </Row>
+        </ItemHeadingGroup>
+      </ItemGroup>
     </Col>
   </Row>
 );

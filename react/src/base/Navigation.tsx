@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { NavLink } from 'react-sps/link';
-import { Row, Col } from 'react-sps/grid';
+import { NavLink, Row, Col } from 'react-sps';
 
 export const Navigation = () => (
   <Row>
@@ -41,6 +40,17 @@ export const Navigation = () => (
         </Col>
         <Col lg={3}>
           <NavLink to="/spinner">Spinner</NavLink>
+        </Col>
+        <Col lg={3}>
+          <NavLink to="/card">Card</NavLink>
+        </Col>
+        <Col lg={3}>
+          <NavLink to="/router">Router</NavLink>
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={3}>
+          <NavLink to="/messaging">Messaging</NavLink>
         </Col>
       </Row>
     </Col>

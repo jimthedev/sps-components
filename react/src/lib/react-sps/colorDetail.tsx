@@ -1,4 +1,4 @@
-import * as Color from './color';
+import * as Color from 'react-sps/color';
 
 export interface IColorDetailRGB {
   red: number;
@@ -55,7 +55,7 @@ export interface IColorDetails {
   red300: IColorDetail;
 }
 
-const ColorDetail: IColorDetails = {
+export const ColorDetail: IColorDetails = {
   // Blues
   blue100: {
     friendlyName: 'Blue 100',
@@ -315,5 +315,3 @@ const ColorDetail: IColorDetails = {
     },
   },
 };
-
-export default ColorDetail;
