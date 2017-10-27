@@ -1,5 +1,5 @@
-import themed, { withProps } from "./themed-components";
-import { withFonts, sourceSansPro } from "react-sps/font";
+import themed, { withProps } from './themed-components';
+import { withFonts, sourceSansPro } from 'react-sps/font';
 
 interface IProps {
   sourceSansPro: any;
@@ -12,12 +12,12 @@ interface IProps {
 // should be listed here:
 // Req'd due to: https://github.com/Microsoft/typescript-styled-plugin/issues/21
 const styled = {
-  input: withProps<IProps>()(themed.input)
+  input: withProps<IProps>()(themed.input),
 };
 
 // These styles will remain local
 export const Input = withFonts({
-  sourceSansPro
+  sourceSansPro,
 })(styled.input`
   ::placeholder {
     color: ${({ disabled, theme }) =>
@@ -33,7 +33,7 @@ export const Input = withFonts({
         ? theme.color.gray200
         : error ? theme.color.red200 : theme.color.gray400};
   border-radius: 3px;
-  box-shadow: inset 0 ${({ disabled }) => (disabled ? 0 : "4px")} 0px 0px
+  box-shadow: inset 0 ${({ disabled }) => (disabled ? 0 : '4px')} 0px 0px
     ${({ theme }) => theme.color.gray200};
   color: ${({ disabled, theme }) =>
     disabled ? theme.color.gray200 : theme.color.gray600};

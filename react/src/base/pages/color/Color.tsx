@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Color,
   ColorDetail,
@@ -11,11 +11,11 @@ import {
   Col,
   RouteComponentProps,
   withFonts,
-  sourceSansPro
-} from "react-sps";
+  sourceSansPro,
+} from 'react-sps';
 
-import { ItemGroup } from "../../ItemGroup";
-import { ItemHeadingGroup } from "../../ItemHeadingGroup";
+import { ItemGroup } from '../../ItemGroup';
+import { ItemHeadingGroup } from '../../ItemHeadingGroup';
 
 // interface PageParams {
 // }
@@ -33,35 +33,35 @@ export interface ISwatch {
 }
 
 export const Swatch = withFonts({
-  sourceSansPro
+  sourceSansPro,
 })(
   ({
     sourceSansPro,
     colorDetail,
     shadowColorRGB = ColorDetail.gray600.rgb,
-    shadowOpacity = "0.25",
-    textColor
+    shadowOpacity = '0.25',
+    textColor,
   }: ISwatch) => {
     const { fontFamily } = sourceSansPro.styles;
     const { friendlyName, hex, rgb } = colorDetail;
     return (
       <div
         style={{
-          borderRadius: "50%",
-          width: "130px",
-          height: "130px",
+          borderRadius: '50%',
+          width: '130px',
+          height: '130px',
           backgroundColor: hex,
           color: textColor,
-          textAlign: "center",
+          textAlign: 'center',
           boxShadow: `0 0 3px 1px rgba(${shadowColorRGB.red},${shadowColorRGB.green},${shadowColorRGB.blue},${shadowOpacity})`,
-          display: "flex",
-          justifyContent: "center",
-          alignContent: "center",
-          flexDirection: "column",
-          fontSize: "18px",
+          display: 'flex',
+          justifyContent: 'center',
+          alignContent: 'center',
+          flexDirection: 'column',
+          fontSize: '18px',
           fontWeight: 100,
           fontFamily,
-          margin: "20px auto"
+          margin: '20px auto',
         }}
       >
         <div>{friendlyName}</div>

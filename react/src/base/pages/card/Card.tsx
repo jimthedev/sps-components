@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   H1,
   H2,
@@ -9,11 +9,11 @@ import {
   CardHeader,
   RouteComponentProps,
   Row,
-  Col
-} from "react-sps";
+  Col,
+} from 'react-sps';
 
-import { ItemGroup } from "../../ItemGroup";
-import { ItemHeadingGroup } from "../../ItemHeadingGroup";
+import { ItemGroup } from '../../ItemGroup';
+import { ItemHeadingGroup } from '../../ItemHeadingGroup';
 
 // interface PageParams {
 // }
@@ -27,7 +27,6 @@ export default ({  }: PageProps) => (
     <Col>
       <H1>Cards</H1>
       <ItemGroup>
-        
         <ItemHeadingGroup>
           <H2>Card</H2>
           <Card>

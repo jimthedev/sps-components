@@ -1,5 +1,5 @@
-import themed, { withProps } from "./themed-components";
-import { withFonts, sourceSansPro } from "react-sps/font";
+import themed, { withProps } from './themed-components';
+import { withFonts, sourceSansPro } from 'react-sps/font';
 
 interface ICardBodyProps {
   sourceSansPro: any;
@@ -9,7 +9,7 @@ interface ICardBodyProps {
 // should be listed here:
 // Req'd due to: https://github.com/Microsoft/typescript-styled-plugin/issues/21
 const styled = {
-  cardBody: withProps<ICardBodyProps>()(themed.div)
+  cardBody: withProps<ICardBodyProps>()(themed.div),
 };
 
 export const CardBody = withFonts({ sourceSansPro })(styled.cardBody`

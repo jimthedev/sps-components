@@ -1,8 +1,8 @@
-import { PostMessage, IPostMessage } from "./postMessage";
-import { destroy } from "./destroy";
-import { EventHandler } from "./eventHandler";
+import { PostMessage, IPostMessage } from './postMessage';
+import { destroy } from './destroy';
+import { EventHandler } from './eventHandler';
 
-var _allowedOrigin: string = "*";
+var _allowedOrigin: string = '*';
 
 export class MessageBus {
   frame: any;
@@ -13,7 +13,7 @@ export class MessageBus {
     this.handlers = {};
     this.self = self || window;
 
-    this.self.addEventListener("message", this.messageHandler, false);
+    this.self.addEventListener('message', this.messageHandler, false);
   }
 
   /**
@@ -22,7 +22,7 @@ export class MessageBus {
      * @param {MessageEvent} event
      */
   messageHandler(event: any) {
-    var isStr = typeof event.data === "string";
+    var isStr = typeof event.data === 'string';
     var isMine = event.source === this.frame;
     if (isStr && isMine) {
       var msg = PostMessage.parse(event.data);
@@ -48,7 +48,7 @@ export class MessageBus {
    * @returns {IPostMessageSent}
    */
   send(cmd: string, body?: any, opts?: any) {
-    body = body || "";
+    body = body || '';
     opts = opts || {};
     opts.cmd = cmd;
     opts.body = body;
@@ -76,7 +76,7 @@ export class MessageBus {
    */
   destroy = function() {
     try {
-      this.self.removeEventListener("message", this.messageHandler);
+      this.self.removeEventListener('message', this.messageHandler);
       destroy(this.handlers);
       destroy(this);
     } catch (e) {
@@ -131,11 +131,11 @@ export class MessageBus {
           legacy: incomingMsg.legacy,
           response: incomingMsg.cmd,
           id: incomingMsg.id,
-          cmd: "response",
-          body: ""
+          cmd: 'response',
+          body: '',
         };
 
-        if (typeof response === "function") {
+        if (typeof response === 'function') {
           result = response(body, incomingMsg);
         } else {
           result = response;
@@ -173,7 +173,7 @@ export class MessageBus {
     var event = {
       handler: handler,
       destroy: destroy,
-      respondWith: respondWith
+      respondWith: respondWith,
     };
 
     return event;

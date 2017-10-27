@@ -1,9 +1,7 @@
 import withAsyncFonts from 'jimthedev-react-with-async-fonts';
 import { InputFont as Font } from 'jimthedev-react-with-async-fonts/lib/types';
 export const withFonts = withAsyncFonts;
-export {
-  Font
-};
+export { Font };
 export const sourceSansPro: Font = {
   family: 'Source Sans Pro',
   error: new Error('Could not load'),

@@ -25,9 +25,9 @@ export const Rotate360 = keyframes`
 // These styles will remain local
 export const Spinner = styled.spinner`
   animation: ${Rotate360} 1.1s infinite linear;
-  border-color: ${({theme}) => theme.color.blue400}
-    ${({theme}) => theme.color.blue400} ${({theme}) => theme.color.blue400}
-    ${({theme}) => theme.color.blue200};
+  border-color: ${({ theme }) => theme.color.blue400}
+    ${({ theme }) => theme.color.blue400} ${({ theme }) => theme.color.blue400}
+    ${({ theme }) => theme.color.blue200};
   border-radius: 50%;
   border-style: solid;
   border-width: 1.1em;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { RouteComponentProps, Row, Col, H1, H2, Spinner } from 'react-sps';
 
-import {ItemGroup} from '../../ItemGroup';
-import {ItemHeadingGroup} from '../../ItemHeadingGroup';
+import { ItemGroup } from '../../ItemGroup';
+import { ItemHeadingGroup } from '../../ItemHeadingGroup';
 
 // interface PageParams {
 // }

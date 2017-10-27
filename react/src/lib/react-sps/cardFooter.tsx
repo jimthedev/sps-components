@@ -1,12 +1,12 @@
-import themed, { withProps } from "./themed-components";
-import { withFonts, sourceSansPro } from "react-sps/font";
+import themed, { withProps } from './themed-components';
+import { withFonts, sourceSansPro } from 'react-sps/font';
 
 interface ICardFooterProps {
   sourceSansPro: any;
 }
 
 const styled = {
-  cardFooter: withProps<ICardFooterProps>()(themed.div)
+  cardFooter: withProps<ICardFooterProps>()(themed.div),
 };
 
 export const CardFooter = withFonts({ sourceSansPro })(styled.cardFooter`

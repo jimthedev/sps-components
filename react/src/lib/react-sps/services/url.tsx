@@ -12,19 +12,19 @@ import map from 'lodash/map';
  * @param url
  * @returns {String}
  */
-export function getParameterByName(name:string, url:string):string {
+export function getParameterByName(name: string, url: string): string {
   if (url === null) {
     url = window.location.search;
   }
 
-  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-  var regexS = "[\\?&]" + name + "=([^&#]*)";
+  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+  var regexS = '[\\?&]' + name + '=([^&#]*)';
   var regex = new RegExp(regexS);
   var results = regex.exec(url);
   if (results === null) {
-    return "";
+    return '';
   }
-  return decodeURIComponent(results[1].replace(/\+/g, " "));
+  return decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
 
 /**
@@ -35,14 +35,14 @@ export function getParameterByName(name:string, url:string):string {
  *
  * @returns {Object}
  */
-export function getParams(url:string) {
+export function getParams(url: string) {
   url = url || window.location.href;
   var parts = this.parseUrl(url)
     .search.slice(1)
-    .split("&");
-  var partMap = map(parts, function(item:string) {
+    .split('&');
+  var partMap = map(parts, function(item: string) {
     if (item) {
-      return item.split("=");
+      return item.split('=');
     }
   });
   return zipObject(compact(partMap));
@@ -55,7 +55,7 @@ export function getParams(url:string) {
  * @param url2
  * @returns {boolean}
  */
-export function hostAndProtocolMatch(url1:string, url2:string) {
+export function hostAndProtocolMatch(url1: string, url2: string) {
   var a = this.parseUrl(url1);
   var b = this.parseUrl(url2);
   return a.host === b.host && a.protocol === b.protocol;
@@ -70,8 +70,8 @@ export function hostAndProtocolMatch(url1:string, url2:string) {
  */
 export function join() {
   var arr = Array.apply(null, arguments);
-  var str = arr.join("/");
-  return str.replace(/([^:]\/)\/+/g, "$1"); // remove double slashes
+  var str = arr.join('/');
+  return str.replace(/([^:]\/)\/+/g, '$1'); // remove double slashes
 }
 
 /**
@@ -81,8 +81,8 @@ export function join() {
  * @param url
  * @returns {Element}
  */
-export function parseUrl(url:string) {
-  var a = document.createElement("a");
+export function parseUrl(url: string) {
+  var a = document.createElement('a');
   a.href = url;
   return a;
 }
@@ -96,10 +96,10 @@ export function parseUrl(url:string) {
  * @param val
  * @returns {string}
  */
-export function updateQueryString(url:string, key:string, val:any) {
+export function updateQueryString(url: string, key: string, val: any) {
   url = url || window.location.href;
 
-  var query:Array<string> = [];
+  var query: Array<string> = [];
   var parts = this.parseUrl(url);
   var params = this.getParams(url);
 
@@ -113,10 +113,10 @@ export function updateQueryString(url:string, key:string, val:any) {
   }
 
   each(params, function(key, val) {
-    query.push(key + "=" + val);
+    query.push(key + '=' + val);
   });
 
-  var queryAsString = query.join("&");
+  var queryAsString = query.join('&');
 
-  return host + path + (queryAsString ? "?" + queryAsString : "") + hash;
+  return host + path + (queryAsString ? '?' + queryAsString : '') + hash;
 }

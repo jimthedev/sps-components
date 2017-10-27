@@ -15,9 +15,9 @@ const styled = {
 // These styles will remain local
 export const H2 = withFonts({ sourceSansPro })(styled.h2`
   box-sizing: border-box;
-  color: ${({theme}) => theme.color.gray600};
+  color: ${({ theme }) => theme.color.gray600};
   display: block;
-  font-family: ${({sourceSansPro}) => sourceSansPro.styles.fontFamily};
+  font-family: ${({ sourceSansPro }) => sourceSansPro.styles.fontFamily};
   font-size: 32px;
   font-weight: 500;
   line-height: 35.2px;

@@ -1,8 +1,20 @@
 import React from 'react';
-import { H1, H2, P, Container, Row, Col, Visible, match, RouteComponentProps, withTheme, ITheme } from "react-sps";
+import {
+  H1,
+  H2,
+  P,
+  Container,
+  Row,
+  Col,
+  Visible,
+  match,
+  RouteComponentProps,
+  withTheme,
+  ITheme,
+} from 'react-sps';
 
-import {ItemGroup} from '../../ItemGroup';
-import {ItemHeadingGroup} from '../../ItemHeadingGroup';
+import { ItemGroup } from '../../ItemGroup';
+import { ItemHeadingGroup } from '../../ItemHeadingGroup';
 
 interface PageParams {
   name: string;

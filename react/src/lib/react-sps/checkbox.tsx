@@ -1,10 +1,6 @@
 import * as React from "react";
 import themed, { withProps } from "./themed-components";
 import { Font, withFonts, sourceSansPro } from "react-sps/font";
-interface ICheckboxProps {
-  id: string;
-  label: string;
-}
 
 interface IThemedCheckboxProps {
   sourceSansPro: Font;
@@ -125,9 +121,9 @@ const ThemedCheckbox = withFonts({ sourceSansPro })(styled.checkbox`
   }
   */
 
-export class Checkbox extends React.Component<ICheckboxProps> {
+export class Checkbox extends React.Component<any> {
   render() {
-    const { label, ...rest } = this.props;
+    const {label, ...rest } = this.props;
     return (
       <ThemedCheckbox>
         <input type="checkbox" {...rest} /><label htmlFor={this.props.id}>{label}</label>

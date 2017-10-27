@@ -28,24 +28,24 @@ const ThemedTextarea = withFonts({
   sourceSansPro,
 })(styled.textarea`
   ::placeholder {
-    color: ${({disabled, theme}) =>
+    color: ${({ disabled, theme }) =>
       disabled ? theme.color.gray200 : theme.color.gray400};
   }
   :focus {
     outline: none;
-    border: 1px solid ${({theme}) => theme.color.blue200};
+    border: 1px solid ${({ theme }) => theme.color.blue200};
   }
   border: 1px solid
-    ${({disabled, error, theme}) =>
+    ${({ disabled, error, theme }) =>
       disabled
         ? theme.color.gray200
         : error ? theme.color.red200 : theme.color.gray400};
   border-radius: 3px;
   box-shadow: inset 0 ${({ disabled }) => (disabled ? 0 : '4px')} 0px 0px
-    ${({theme}) => theme.color.gray200};
+    ${({ theme }) => theme.color.gray200};
   color: ${({ disabled, theme }) =>
     disabled ? theme.color.gray200 : theme.color.gray600};
-  font-family: ${({sourceSansPro}) => sourceSansPro.styles.fontFamily};
+  font-family: ${({ sourceSansPro }) => sourceSansPro.styles.fontFamily};
   padding-top: 12px; /* 8px padding + 4px box shadow  */
   padding-right: 9px;
   padding-bottom: 10px;
@@ -60,8 +60,8 @@ const ThemedTextarea = withFonts({
 export const TextareaInstructions = withFonts({
   sourceSansPro,
 })(styled.instructions`
-  color: ${({theme}) => theme.color.gray500 };
-  font-family: ${({sourceSansPro}) => sourceSansPro.styles.fontFamily};
+  color: ${({ theme }) => theme.color.gray500};
+  font-family: ${({ sourceSansPro }) => sourceSansPro.styles.fontFamily};
   margin-top: 10px; /* assumes label has no margin */
   margin-bottom: 3px; /* assumes textarea has top margin */
   font-weight: 200;
@@ -70,11 +70,11 @@ export const TextareaInstructions = withFonts({
 `);
 
 export const Textarea = (props: any) => {
-  const { renderInstructions , ...rest} = props;
+  const { renderInstructions, ...rest } = props;
   return (
     <Aux>
       {renderInstructions ? renderInstructions(props) : null}
       <ThemedTextarea {...rest} key="textarea" />
     </Aux>
-  )
-}
+  );
+};
